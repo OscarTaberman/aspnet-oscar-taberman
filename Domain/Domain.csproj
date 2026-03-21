@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\Logging\" />
-    <Folder Include="Abstractions\Repositories\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Aggregates\" />
     <Folder Include="Common\ValueObjects\" />
