@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
     <Folder Include="Aggregates\" />
     <Folder Include="Common\ValueObjects\" />
+    <Folder Include="Exceptions\Business\" />
   </ItemGroup>
 
 </Project>
