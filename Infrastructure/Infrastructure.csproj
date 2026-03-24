@@ -11,8 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Logging\" />
     <Folder Include="Persistence\EFC\Contexts\" />
     <Folder Include="Persistence\EFC\Entities\" />
     <Folder Include="Persistence\EFC\Configurations\" />
