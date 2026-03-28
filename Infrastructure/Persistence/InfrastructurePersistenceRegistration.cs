@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿
+
+using Infrastructure.Persistence.EFC;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -11,6 +15,14 @@ public static class InfrastructurePersistenceRegistration
         ArgumentNullException.ThrowIfNull(services);
         ArgumentNullException.ThrowIfNull(configuration);
         ArgumentNullException.ThrowIfNull(environment);
+
+        var connectionString = configuration.GetConnectionString("CoreGymConnection");
+
+        services.AddDbContext<CoreGymDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+
+        });
 
         return services;
     }

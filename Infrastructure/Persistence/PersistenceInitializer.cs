@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Infrastructure.Persistence.EFC;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Infrastructure.Persistence;
 
@@ -9,13 +11,6 @@ public static class PersistenceInitializer
         ArgumentNullException.ThrowIfNull(serviceProvider);
         ArgumentNullException.ThrowIfNull(environment);
 
-        if (environment.IsDevelopment())
-        {
-
-        }
-        else
-        {
-
-        }
+        using var scope = serviceProvider.CreateScope();
     }
 }

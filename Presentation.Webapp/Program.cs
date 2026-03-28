@@ -1,9 +1,10 @@
 using Application.DependencyInjection;
 using Infrastructure.DependencyInjection;
 using Infrastructure.Persistence;
+using Infrastructure.Persistence.EFC;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddControllersWithViews();
 
@@ -17,7 +18,7 @@ await PersistenceInitializer.InitializerAsync(app.Services, app.Environment, Can
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
