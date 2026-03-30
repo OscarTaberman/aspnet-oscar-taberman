@@ -4,7 +4,6 @@ using Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddApplication(builder.Configuration, builder.Environment);
@@ -12,12 +11,12 @@ builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
 
 var app = builder.Build();
 
-await PersistenceInitializer.InitializerAsync(app.Services, app.Environment, CancellationToken.None);
+await PersistenceInitializer.InitializeAsync(app.Services, app.Environment, CancellationToken.None);
 
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

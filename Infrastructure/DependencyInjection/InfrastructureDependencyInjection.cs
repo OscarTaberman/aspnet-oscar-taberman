@@ -14,7 +14,7 @@ public static class InfrastructureDependencyInjection
         ArgumentNullException.ThrowIfNull(configuration);
         ArgumentNullException.ThrowIfNull(environment);
 
-        services.AddLogging(configuration, environment);
+        services.AddLogger();
         services.AddPersistence(configuration, environment);
 
         return services;
