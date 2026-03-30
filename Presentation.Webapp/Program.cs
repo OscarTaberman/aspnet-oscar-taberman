@@ -1,8 +1,6 @@
 using Application.DependencyInjection;
 using Infrastructure.DependencyInjection;
 using Infrastructure.Persistence;
-using Infrastructure.Persistence.EFC;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +11,7 @@ builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
 
 var app = builder.Build();
 
-await PersistenceInitializer.InitializerAsync(app.Services, app.Environment, CancellationToken.None);
+await PersistenceInitializer.InitializeAsync(app.Services, app.Environment, CancellationToken.None);
 
 app.UseHsts();
 app.UseHttpsRedirection();

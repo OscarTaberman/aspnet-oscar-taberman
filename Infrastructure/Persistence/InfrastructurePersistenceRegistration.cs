@@ -1,6 +1,4 @@
-﻿
-
-using Infrastructure.Persistence.EFC;
+﻿using Infrastructure.Persistence.EFC;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,13 +14,20 @@ public static class InfrastructurePersistenceRegistration
         ArgumentNullException.ThrowIfNull(configuration);
         ArgumentNullException.ThrowIfNull(environment);
 
-        var connectionString = configuration.GetConnectionString("CoreGymConnection");
-
-        services.AddDbContext<CoreGymDbContext>(options =>
+        // In development use in-memory database
+        if (environment.IsDevelopment())
         {
-            options.UseSqlServer(connectionString);
+            services.AddDbContext<CoreGymDbContext>(options =>
+                options.UseInMemoryDatabase("CoreFitnessGym"));
+        }
+        // In production use SQL Server
+        else
+        {
+            var connectionString = configuration.GetConnectionString("CoreGymConnection");
 
-        });
+            services.AddDbContext<CoreGymDbContext>(options =>
+                options.UseSqlServer(connectionString));
+        }
 
         return services;
     }
