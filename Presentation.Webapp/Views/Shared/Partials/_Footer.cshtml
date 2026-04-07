@@ -1,5 +1,9 @@
+@{
+    var siteSettings = SiteSettings.Value;
+}
+
 <footer>
-    <div>
-        &copy; @DateTime.Now.Year
+    <div class="footer-container">
+        &copy; @DateTime.Now.Year @siteSettings.Copyright
     </div>
 </footer>
