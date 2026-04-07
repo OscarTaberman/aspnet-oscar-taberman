@@ -24,5 +24,7 @@ public static class PersistenceInitializer
         {
             await dbContext.Database.MigrateAsync(ct);
         }
+
+        await IdentitySeeder.SeedAsync(scope.ServiceProvider);
     }
 }

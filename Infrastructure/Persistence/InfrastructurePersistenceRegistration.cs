@@ -1,4 +1,6 @@
-﻿using Infrastructure.Persistence.EFC;
+﻿using Infrastructure.Identity;
+using Infrastructure.Persistence.EFC;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +30,11 @@ public static class InfrastructurePersistenceRegistration
             services.AddDbContext<CoreGymDbContext>(options =>
                 options.UseSqlServer(connectionString));
         }
+
+
+        services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<CoreGymDbContext>()
+            .AddDefaultTokenProviders();
 
         return services;
     }
