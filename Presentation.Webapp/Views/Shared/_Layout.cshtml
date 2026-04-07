@@ -1,17 +1,34 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+
+@{
+    var siteSettings = SiteSettings.Value;
+    var title = string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString())
+        ? $"{siteSettings.SiteName} | {siteSettings.Slogan}"
+        : $"{ViewData["Title"]} | {siteSettings.SiteName}";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="@siteSettings.Language">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] | CoreFitness</title>
+    <meta name="description" content="@siteSettings.Description" />
+    <meta name="author" content="@siteSettings.SiteName" />
+    <title>@title</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Presentation.Webapp.styles.css" asp-append-version="true" />
 </head>
 <body>
-
-    @RenderBody()
-
+    <div class="app-layout">
+        @await Html.PartialAsync("Partials/_Header.cshtml")
+        <main>
+            @RenderBody()
+        </main>
+        @await Html.PartialAsync("Partials/_Footer.cshtml")
+    </div>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

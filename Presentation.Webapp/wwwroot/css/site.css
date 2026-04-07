@@ -1,1 +1,14 @@
-﻿
+﻿*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+html, body {
+    margin: 0
+}
+
+.app-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100dvh;
+}
