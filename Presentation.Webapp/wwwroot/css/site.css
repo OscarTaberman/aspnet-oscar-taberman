@@ -12,7 +12,7 @@
         --primary-color: #080517;
         --secondary-color: #FFFFFF;
         --accent-secondary-color: #aba1da14;
-        --bg-color: #080517;
+        --bg-color: #FFFFFF;
         --text-color: #F7F7F7;
         --accent-color: #D5EB45;
         --white-color: #FFFFFF;
@@ -41,12 +41,6 @@
     box-sizing: border-box;
 }
 
-.app-layout {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    height: 100dvh;
-}
-
 
 html, body {
     margin: 0;
@@ -62,12 +56,22 @@ html, body {
     min-height: 100%;
 }
 
+.app-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100dvh;
+    background-color: var(--bg-color);
+    border-radius: 2rem;
+}
+
+
 .container {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
+
 
 
     @media (min-width: 768px) {
@@ -87,30 +91,111 @@ html, body {
     }
 }
 
-.container-fluid {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-}
+header {
 
-.nav-links {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    gap: 2rem;
+    .header-container {
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 24px;
+        font-weight: 700;
 
-    .nav-link a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        transition: color 0.3s ease;
 
-        &:hover {
-            color: var(--accent-color);
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+                display: flex;
+                align-items: center;
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    color: var(--accent-color);
+                }
+            }
+
+            .dropdown {
+                position: relative;
+                box-sizing: border-box;
+
+                img {
+                    height: 1.5rem;
+                    width: auto;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    padding: 0rem;
+                    text-align: right;
+                    background-color: var(--accent-color);
+                    color: var(--primary-color);
+                    border-radius: 24px;
+                }
+                a {
+
+                }
+            }
+
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+        }
+
+        .account-buttons {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: var(--text-color);
+
+                &:hover {
+                    color: var(--accent-color);
+                }
+            }
+
+            .sign-in {
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.7rem;
+                    background-color: var(--accent-color);
+                    padding: 1rem 1.5rem;
+                    border-radius: 2rem;
+                    color: var(--primary-color);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: white;
+                        opacity: 0.9;
+                    }
+                }
+
+                img {
+                    height: 1.5rem;
+                    width: auto;
+                }
+            }
         }
     }
 }
