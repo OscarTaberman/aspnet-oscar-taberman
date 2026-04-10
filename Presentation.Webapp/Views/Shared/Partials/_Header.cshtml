@@ -1,29 +1,29 @@
 <header>
     <section class="header-container">
         <div>
-            <a href="/"><img src="~/images/logotype.png" alt="d"></a>
+            <a asp-controller="Home" asp-action="Index"><img class="logo" src="~/images/logotype.png" alt="logo"></a>
         </div>
         <nav>
             <ul class="navbar">
-                <li class="nav-links"><a href="#">Fitness Centers</a></li>
-                <li class="nav-links"><a href="#">Membership</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Fitness Centers</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Membership</a></li>
                 <li class="dropdown">
                     Training <img src="~/images/right-arrow-white.png" alt="arrow">
                     <ul class="dropdown-content">
-                        <li class="nav-links"><a href="#">Personal Training</a></li>
-                        <li class="nav-links"><a href="#">Group Training</a></li>
-                        <li class="nav-links"><a href="#">Padel</a></li>
+                        <li class="nav-links"><a asp-controller="Error" asp-action="Index">Personal Training</a></li>
+                        <li class="nav-links"><a asp-controller="Error" asp-action="Index">Group Training</a></li>
+                        <li class="nav-links"><a asp-controller="Error" asp-action="Index">Padel</a></li>
                     </ul>
                 </li>
-                <li class="nav-links"><a href="#">Customer Service</a></li>
-                <li class="nav-links"><a href="#">Store</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Customer Service</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Store</a></li>
             </ul>
         </nav>
         <div>
             <ul class="account-buttons">
-                <li class="nav-links"><a href="#">Become Member</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Become Member</a></li>
                 <li class="nav-links sign-in">
-                    <a href="/signin">
+                    <a asp-controller="Error" asp-action="Index">
                         <span>Sign In</span>
                         <img src="~/images/right-arrow.png" alt="arrow">
                         </a>

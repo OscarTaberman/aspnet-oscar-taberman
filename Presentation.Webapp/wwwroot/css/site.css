@@ -92,6 +92,12 @@ html, body {
     }
 }
 
+.logo {
+    height: 3rem;
+    width: auto;
+    display: block;
+}
+
 header {
 
     .header-container {
@@ -100,9 +106,12 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 1rem;
-        padding: 1rem;
+        padding: 0rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
         border-radius: 24px;
         font-weight: 700;
+        height: 6rem;
 
 
         .navbar {
@@ -148,11 +157,7 @@ header {
                     color: var(--primary-color);
                     border-radius: 24px;
                 }
-                a {
-
-                }
             }
-
                 .dropdown:hover .dropdown-content {
                     display: block;
                 }
@@ -181,7 +186,7 @@ header {
                     align-items: center;
                     gap: 0.7rem;
                     background-color: var(--accent-color);
-                    padding: 1rem 1.5rem;
+                    padding: 0.7rem 1.1rem;
                     border-radius: 2rem;
                     color: var(--primary-color);
                     text-decoration: none;
@@ -249,6 +254,56 @@ footer {
             margin-top: 2rem;
             padding-top: 2rem;
             padding-bottom: 1.5rem;
+        }
+    }
+}
+
+.Error_404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    color: var(--primary-color);
+
+    h1 {
+        font-size: 55px;
+        font-weight: 900;
+        margin-bottom: 0rem;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    img {
+        height: 345px;
+        width: auto;
+    }
+
+    .btn-404 {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        height: 0;
+        background-color: var(--accent-color);
+        margin-top: 3rem;
+        padding: 1.5rem 1.1rem;
+        border-radius: 2rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+            color: white;
+            opacity: 0.9;
+        }
+
+        img {
+            height: 1.5rem;
+            width: auto;
         }
     }
 }
