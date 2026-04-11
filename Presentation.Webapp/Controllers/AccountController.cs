@@ -7,7 +7,7 @@ namespace Presentation.Webapp.Controllers
         [Route("account")]
         public IActionResult Index()
         {
-            return View();
+            return View("Register");
         }
     }
 }
