@@ -4,10 +4,22 @@ namespace Presentation.Webapp.Controllers
 {
     public class AccountController : Controller
     {
-        [Route("account")]
-        public IActionResult Index()
+        [Route("account/register")]
+        public IActionResult Register()
         {
-            return View("Register");
+            return View();
+        }
+
+        [Route("account/signin")]
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
+        [Route("account/setpassword")]
+        public IActionResult SetPassword()
+        {
+            return View();
         }
     }
 }

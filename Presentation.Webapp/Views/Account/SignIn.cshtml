@@ -1,2 +1,36 @@
 ﻿@{
+    Layout = "_AuthLayout";
+
+    <div class="container">
+        <section class="register">
+            <div class="register-top">
+                <h1>Welcome Back!</h1>
+                <p>
+                    Log in to continue your fitness journey with full access to your customized program, training history, and progress tracking.
+                    Stay consistent, monitor your development, and keep moving forward with the structure and support built into your account.
+                </p>
+            </div>
+            <div class="divider"></div>
+            <div class="third-party">
+                <span>Google  Facebook  GitHub</span>
+            </div>
+            <div class="divider"></div>
+            <div class="register-form">
+                <form action="" method="post">
+                    <label for="email">Email Adress *</label>
+                    <input placeholder="Enter Email Adress" />
+                    <label for="password">Password</label>
+                    <input placeholder="Enter Password" />
+                    <button id="sendButton" class="button" type="submit">
+                        <span>Continue</span>
+                        <img src="/images/right-arrow.png" alt="arrow">
+                    </button>
+                </form>
+                <div class="condition">
+                    <input type="checkbox">
+                    <p>Accept user terms and conditions</p>
+                </div>
+            </div>
+        </section>
+    </div>
 }

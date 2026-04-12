@@ -1,0 +1,54 @@
+﻿@{
+    <div class="container">
+        <h1>My Account</h1>
+        <div class="my-account">
+            <section class="profile-sidebar">
+                <img src="/images/profile-image.png" alt="profile image">
+                <section class="profile-menu">
+                    <span>Menu Options</span>
+                    <ul>
+                        <li>About Me <img src="/images/right-arrow.png" alt="arrow"></li>
+                        <li class="divider"></li>
+                        <li>My Membership <img src="/images/right-arrow.png" alt="arrow"></li>
+                        <li class="divider"></li>
+                        <li>My Bookings <img src="/images/right-arrow.png" alt="arrow"></li>
+                        <li class="divider"></li>
+                        <li>Sign Out <img src="/images/right-arrow.png" alt="arrow"></li>
+                    </ul>
+                </section>
+            </section>
+            <section class="about-me">
+                <h1>About Me</h1>
+                <div class="divider"></div>
+
+                <div class="register-form">
+                    <form action="" method="post">
+                        <label for="first-name">First Name</label>
+                        <input type="text" placeholder="Enter First Name" />
+                        <label for="last-name">Last Name</label>
+                        <input type="text" placeholder="Enter Last Name" />
+                        <label for="email">Email Adress *</label>
+                        <input type="email" placeholder="Enter Email Adress" />
+                        <label for="phone-number">Phone Number</label>
+                        <input type="text" placeholder="Enter Phone Number" />
+                        <div class="divider"></div>
+                        <label for="profile-image">Profile Image</label>
+                        <input type="file" class="image-input" />
+                        <label for="profile-image" class="image-label">
+                            <span>Upload Profile Image</span>
+                            <span class="browse">Browse</span>
+                        </label>
+                        <button id="sendButton" class="button" type="submit">
+                            <span>Continue</span>
+                            <img src="/images/right-arrow.png" alt="arrow">
+                        </button>
+                    </form>
+                    <div class="condition">
+                        <input type="checkbox">
+                        <p>Accept user terms and conditions</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

@@ -1,4 +1,6 @@
 ﻿@{
+    Layout = "_AuthLayout";
+
     <div class="container">
             <section class="register">
                 <div class="register-top">
@@ -8,11 +10,13 @@
                         and keep moving forward with the structure and support built into your account.
                     </p>
                 </div>
+            <div class="divider"></div>
                 <div class="third-party">
                     <span>Google  Facebook  GitHub</span>
                 </div>
+            <div class="divider"></div>
                 <div class="register-form">
-                    <form action="" method="post">
+                    <form asp-controller="Account" asp-action="SetPassword" method="post">
                         <label for="email">Email Adress *</label>
                         <input placeholder="Enter Email Adress"/>
                         <button id="sendButton" class="button" type="submit">
