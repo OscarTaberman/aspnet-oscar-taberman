@@ -1,31 +1,34 @@
-﻿@{
-    Layout = "_AuthLayout";
+﻿@model Presentation.Webapp.ViewModels.RegisterViewModel
 
-    <div class="container">
-            <section class="register">
-                <div class="register-top">
-                    <h1>Become a Member</h1>
-                    <p>Sign up to continue your fitness journey with full access to your customized program,
-                        training history, and progress tracking. Stay consistent, monitor your development,
-                        and keep moving forward with the structure and support built into your account.
-                    </p>
-                </div>
-            <div class="divider"></div>
-                <div class="third-party">
-                    <span>Google  Facebook  GitHub</span>
-                </div>
-            <div class="divider"></div>
-                <div class="register-form">
-                    <form asp-controller="Account" asp-action="SetPassword" method="post">
-                        <label for="email">Email Adress *</label>
-                        <input placeholder="Enter Email Adress"/>
-                        <button id="sendButton" class="button" type="submit">
-                            <span>Continue</span>
-                            <img src="/images/right-arrow.png" alt="arrow">
-                        </button>
-                    </form>
-                    <p>We will send a verification code to your email address.</p>
-                </div>
-            </section>
-        </div>
+@{
+    Layout = "_AuthLayout";
 }
+
+<div class="container">
+    <section class="register">
+        <div class="register-top">
+            <h1>Become a Member</h1>
+            <p>
+                Sign up to continue your fitness journey with full access to your customized program,
+                training history, and progress tracking. Stay consistent, monitor your development,
+                and keep moving forward with the structure and support built into your account.
+            </p>
+        </div>
+        <div class="divider"></div>
+        <div class="third-party">
+            <span>Google  Facebook  GitHub</span>
+        </div>
+        <div class="divider"></div>
+        <div class="register-form">
+            <form asp-controller="Account" asp-action="Register" method="post">
+                <label asp-for="Email">Email Adress *</label>
+                <input asp-for="Email" placeholder="Enter Email Adress" />
+                <button id="sendButton" class="button" type="submit">
+                    <span>Continue</span>
+                    <img src="/images/right-arrow.png" alt="arrow">
+                </button>
+            </form>
+            <p>We will send a verification code to your email address.</p>
+        </div>
+    </section>
+</div>
