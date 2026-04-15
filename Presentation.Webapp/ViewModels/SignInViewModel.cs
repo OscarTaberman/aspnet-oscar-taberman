@@ -2,7 +2,7 @@
 
 namespace Presentation.Webapp.ViewModels;
 
-public sealed class SetPasswordViewModel
+public sealed class SignInViewModel
 {
     [EmailAddress(ErrorMessage = "Invalid email address.")]
     [Display(Name = "Email Address", Prompt = "Enter Email Address")]

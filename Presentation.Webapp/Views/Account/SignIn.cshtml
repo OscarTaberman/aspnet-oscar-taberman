@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Presentation.Webapp.ViewModels.SignInViewModel
+@{
     Layout = "_AuthLayout";
 }
 <div class="container">
@@ -16,11 +17,12 @@
         </div>
         <div class="divider"></div>
         <div class="register-form">
-            <form action="" method="post">
-                <label for="email">Email Adress *</label>
-                <input placeholder="Enter Email Adress" />
-                <label for="password">Password</label>
-                <input placeholder="Enter Password" />
+            <form asp-controller="Account" asp-action="SetPassword" method="post" novalidate>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+                <label asp-for="Password"></label>
+                <input asp-for="Password" />
+                <div asp-validation-summary="All"></div>
                 <button id="sendButton" class="button" type="submit">
                     <span>Continue</span>
                     <img src="/images/right-arrow.png" alt="arrow">

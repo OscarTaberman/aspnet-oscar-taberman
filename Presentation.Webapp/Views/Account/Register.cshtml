@@ -20,9 +20,10 @@
         </div>
         <div class="divider"></div>
         <div class="register-form">
-            <form asp-controller="Account" asp-action="Register" method="post">
-                <label asp-for="Email">Email Adress *</label>
-                <input asp-for="Email" placeholder="Enter Email Adress" />
+            <form asp-controller="Account" asp-action="Register" method="post" novalidate>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
                 <button id="sendButton" class="button" type="submit">
                     <span>Continue</span>
                     <img src="/images/right-arrow.png" alt="arrow">
@@ -32,3 +33,5 @@
         </div>
     </section>
 </div>
+
+@await Html.PartialAsync("_ValidationScripts")
