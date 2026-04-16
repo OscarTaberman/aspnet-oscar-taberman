@@ -12,5 +12,12 @@ namespace Presentation.Webapp.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [Route("profile")]
+        public IActionResult UpdateProfile()
+        {
+            return RedirectToAction("Index");
+        }
     }
 }
