@@ -96,11 +96,11 @@ namespace Presentation.Webapp.Controllers
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                ModelState.AddModelError(nameof(SignInViewModel.Password), "Invalid login attempt.");
                 return View(signIn);
             }
 
-            return RedirectToAction("SignIn");
+            return RedirectToAction("Index", "Profile");
         }
     }
 }

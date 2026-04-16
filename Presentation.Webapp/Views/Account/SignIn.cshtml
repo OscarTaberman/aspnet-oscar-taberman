@@ -20,14 +20,15 @@
             <form asp-controller="Account" asp-action="SignIn" method="post" novalidate>
                 <label asp-for="Email"></label>
                 <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
                 <label asp-for="Password"></label>
                 <input asp-for="Password" />
-                <div asp-validation-summary="All"></div>
+                <span asp-validation-for="Password"></span>
                 <button id="sendButton" class="button" type="submit">
                     <span>Continue</span>
                     <img src="/images/right-arrow.png" alt="arrow">
                 </button>
-            </form>
+                </form>
         </div>
     </section>
 </div>
