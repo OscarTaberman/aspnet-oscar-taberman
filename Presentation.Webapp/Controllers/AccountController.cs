@@ -8,6 +8,7 @@ namespace Presentation.Webapp.Controllers
     public class AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager = userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
         
         // Registration for new users
         [HttpGet]
@@ -32,7 +33,12 @@ namespace Presentation.Webapp.Controllers
         [Route("account/setpassword")]
         public IActionResult SetPassword(string email)
         {
-            var newEmail = new RegisterViewModel
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Register");
+            }
+
+            var newEmail = new SetPasswordViewModel
             {
                 Email = email
             };
@@ -59,7 +65,7 @@ namespace Presentation.Webapp.Controllers
             {
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    ModelState.AddModelError(nameof(SetPasswordViewModel.Password), error.Description);
                 }
                 return View(setPassword);
             }
@@ -75,6 +81,26 @@ namespace Presentation.Webapp.Controllers
         public IActionResult SignIn()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Route("account/signin")]
+        public async Task<IActionResult> SignIn(SignInViewModel signIn)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(signIn);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(signIn.Email, signIn.Password, false, false);
+
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View(signIn);
+            }
+
+            return RedirectToAction("SignIn");
         }
     }
 }

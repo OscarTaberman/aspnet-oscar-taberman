@@ -17,7 +17,7 @@
         </div>
         <div class="divider"></div>
         <div class="register-form">
-            <form asp-controller="Account" asp-action="SetPassword" method="post" novalidate>
+            <form asp-controller="Account" asp-action="SignIn" method="post" novalidate>
                 <label asp-for="Email"></label>
                 <input asp-for="Email" />
                 <label asp-for="Password"></label>
@@ -28,11 +28,8 @@
                     <img src="/images/right-arrow.png" alt="arrow">
                 </button>
             </form>
-            <div class="condition">
-                <input type="checkbox">
-                <p>Accept user terms and conditions</p>
-            </div>
         </div>
     </section>
 </div>
 
+@await Html.PartialAsync("_ValidationScripts")

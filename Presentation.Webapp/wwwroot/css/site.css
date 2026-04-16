@@ -119,6 +119,10 @@ body {
         font-weight: 700;
         gap: 0.5rem;
 
+        label {
+            margin-top: 1rem;
+        }
+
         input {
             background-color: var(--bg-color);
             border: none;
@@ -143,11 +147,11 @@ body {
                 }
         }
 
-        span.field-validation-valid {
+        .field-validation-valid {
             display: none;
         }
 
-        span.field-validation-error {
+        .field-validation-error {
             color: var(--error-color);
             font-size: 14px;
             display: flex;
@@ -156,7 +160,7 @@ body {
             border-color: var(--error-color);
         }
 
-            span.field-validation-error::before {
+            .field-validation-error::before {
                 content: "";
                 display: inline-block;
                 width: 1.5rem;
