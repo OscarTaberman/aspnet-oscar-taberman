@@ -1,0 +1,60 @@
+@{
+
+}
+
+<header>
+    <section class="header-container">
+        <div>
+            <a asp-controller="Home" asp-action="Index"><img class="logo" src="~/images/logotype.png" alt="logo"></a>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Fitness Centers</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Membership</a></li>
+                <li class="dropdown">
+                    Training <img src="~/images/right-arrow-white.png" alt="arrow">
+                    <ul class="dropdown-content">
+                        <li class="nav-links"><a asp-controller="Error" asp-action="Index">Personal Training</a></li>
+                        <li class="nav-links"><a asp-controller="Error" asp-action="Index">Group Training</a></li>
+                        <li class="nav-links"><a asp-controller="Error" asp-action="Index">Padel</a></li>
+                    </ul>
+                </li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Customer Service</a></li>
+                <li class="nav-links"><a asp-controller="Error" asp-action="Index">Store</a></li>
+            </ul>
+        </nav>
+        <div>
+            <ul class="account-buttons">
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <li>
+                        <a asp-controller="Profile" asp-action="Index">My Account</a>
+                    </li>
+
+                    <li>
+                        <form asp-controller="Account" asp-action="SignOutUser" method="post">
+                            <button class="log-account-button" type="submit">Sign Out 
+                                <img src="/images/right-arrow.png" alt="arrow">
+                            </button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a asp-controller="Account" asp-action="Register">Become Member</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Account" asp-action="SignIn" class="log-account-button">
+                            Sign In
+                            <img src="/images/right-arrow.png" alt="arrow">
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+    <section class="hero-container">
+    </section>
+</header>

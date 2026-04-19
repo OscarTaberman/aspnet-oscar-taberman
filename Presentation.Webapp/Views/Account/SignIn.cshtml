@@ -1,0 +1,36 @@
+﻿@model Presentation.Webapp.ViewModels.SignInViewModel
+@{
+    Layout = "_AuthLayout";
+}
+<div class="container">
+    <section class="register">
+        <div class="register-top">
+            <h1>Welcome Back!</h1>
+            <p>
+                Log in to continue your fitness journey with full access to your customized program, training history, and progress tracking.
+                Stay consistent, monitor your development, and keep moving forward with the structure and support built into your account.
+            </p>
+        </div>
+        <div class="divider"></div>
+        <div class="third-party">
+            <span>Google  Facebook  GitHub</span>
+        </div>
+        <div class="divider"></div>
+        <div class="register-form">
+            <form asp-controller="Account" asp-action="SignIn" method="post" novalidate>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+                <label asp-for="Password"></label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+                <button id="sendButton" class="button" type="submit">
+                    <span>Continue</span>
+                    <img src="/images/right-arrow.png" alt="arrow">
+                </button>
+                </form>
+        </div>
+    </section>
+</div>
+
+@await Html.PartialAsync("_ValidationScripts")

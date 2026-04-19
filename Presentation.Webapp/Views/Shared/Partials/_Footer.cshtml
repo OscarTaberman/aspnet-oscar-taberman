@@ -1,0 +1,22 @@
+@{
+    var siteSettings = SiteSettings.Value;
+}
+
+<footer>
+    <section class="footer-container">
+        <section class="footer-top">
+            <a asp-controller="Home" asp-action="Index"><img class="logo" src="~/images/logotype.png" alt="logo"></a>
+            <a href="/"><img src="~/images/footer/empowering-text.png" alt="text"></a>
+        </section>
+        <section class="footer-mid">
+            <a href="/"><img src="~/images/footer/our-location.png" alt="map"></a>
+            <div class="hours-text">
+                <a href="/"><img src="~/images/footer/working-hours.png" alt="text"></a>
+                <a href="/"><img src="~/images/footer/opening-hours.png" alt="text"></a>
+            </div>
+        </section>
+        <section class="footer-bottom">
+            &copy; @DateTime.Now.Year @siteSettings.Copyright
+        </section>
+    </section>
+</footer>
