@@ -72,12 +72,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    h1 {
-        display: flex;
-        justify-content: center;
-        color: var(--primary-color);
-        margin-top: 3rem;
-    }
+
 
     @media (min-width: 768px) {
         max-width: 720px;
@@ -770,6 +765,184 @@ footer {
         .register-form .divider {
             margin-top: 2rem;
             margin-bottom: 1rem;
+        }
+    }
+}
+
+.container {
+    max-width: 2200px;
+
+    .equipment {
+        display: flex;
+        justify-content: space-around;
+        background-color: var(--accent-color);
+        width: 100%;
+        border-radius: 2rem;
+
+        h1 {
+            color: var(--primary-color);
+            font-weight: 900;
+            font-size: 40px;
+        }
+
+        .brands {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            img {
+                height: 45px;
+                width: auto;
+            }
+        }
+    }
+
+    .about-us {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--primary-color);
+        margin: 4rem 0;
+        width: 80%;
+        transform: translateX(10%);
+        gap: 2rem;
+
+        .about-us-text {
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+
+            h2 {
+                font-size: 14px;
+                font-weight: 900;
+                color: white;
+                background-color: black;
+                width: fit-content;
+                padding: 0.2rem 0.5rem;
+                border-radius: 0.5rem;
+            }
+
+            h1 {
+                font-size: 40px;
+                font-weight: 900;
+                margin: 0.5rem 0;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .about-us-white {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.7rem;
+                margin-top: 1rem;
+                background-color: white;
+                padding: 1.5rem 1.5rem;
+                border-radius: 1rem;
+                width: 500px;
+                font-weight: 700;
+                font-size: 14px;
+                padding: 2rem;
+            }
+        }
+    }
+
+    .our-programs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: 4rem 0;
+        border-radius: 2rem;
+        padding: 4rem;
+        gap: 2rem;
+
+        h2 {
+            font-size: 14px;
+            font-weight: 900;
+            color: white;
+            background-color: black;
+            width: fit-content;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 900;
+            margin: 0.5rem 0;
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            img {
+                height: auto;
+                max-width: 100%;
+                border-radius: 2rem;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+    }
+
+    .our-store {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 4rem 0;
+        border-radius: 2rem;
+        padding: 4rem;
+        gap: 2rem;
+
+        h2 {
+            font-size: 14px;
+            font-weight: 900;
+            color: white;
+            background-color: black;
+            width: fit-content;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 900;
+            margin: 0.5rem 0;
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            img {
+                height: auto;
+                max-width: 100%;
+                border-radius: 2rem;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-color);
         }
     }
 }
