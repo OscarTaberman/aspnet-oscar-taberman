@@ -23,6 +23,12 @@
                     </li>
                 </ul>
             </section>
+            <div class="delete">
+                <p>If you like to cancel your account click below</p>
+                <form asp-controller="Profile" asp-action="DeleteProfile" method="post">
+                    <button type="submit">Remove Account</button>
+                </form>
+            </div>
         </section>
         <section class="about-me">
             <h1>About Me</h1>

@@ -39,7 +39,7 @@ namespace Presentation.Webapp.Controllers
         }
 
         [HttpPost]
-        [Route("profile")]
+        [Route("profile/update")]
         public async Task<IActionResult> UpdateProfile(ProfileViewModel updateUser)
         {
             var currentUser = await userManager.GetUserAsync(User);
@@ -76,6 +76,29 @@ namespace Presentation.Webapp.Controllers
             await signInManager.RefreshSignInAsync(currentUser);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [Route("profile/delete")]
+        public async Task<IActionResult> DeleteProfile()
+        {
+            var currentUser = await userManager.GetUserAsync(User);
+            if (currentUser == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            var isDeleted = await userManager.DeleteAsync(currentUser);
+
+            if (!isDeleted.Succeeded)
+            {
+                ModelState.AddModelError(string.Empty, "Failed to delete profile.");
+                return View("Index", isDeleted);
+            }
+
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
