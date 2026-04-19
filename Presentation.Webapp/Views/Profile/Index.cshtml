@@ -4,7 +4,7 @@
     <h1>My Account</h1>
     <div class="my-account">
         <section class="profile-sidebar">
-            <img src="/images/profile-image.png" alt="profile image">
+            <img src="@(Model.ExistingProfileImageUrl)" alt="profile image">
             <section class="profile-menu">
                 <span>Menu Options</span>
                 <ul>
@@ -23,7 +23,7 @@
             <div class="divider"></div>
 
             <div class="register-form">
-                <form asp-controller="Profile" asp-action="UpdateProfile" method="post">
+                <form asp-controller="Profile" asp-action="UpdateProfile" enctype="multipart/form-data" method="post">
                     <label asp-for="FirstName"></label>
                     <input type="text" asp-for="FirstName" />
                     <label asp-for="LastName"></label>
@@ -33,9 +33,9 @@
                     <label asp-for="PhoneNumber"></label>
                     <input type="text" asp-for="PhoneNumber" />
                     <div class="divider"></div>
-                    <label asp-for="ProfileImage"></label>
-                    <input type="file" asp-for="ProfileImage" class="image-input" />
-                    <label asp-for="ProfileImage" class="image-label">
+                    <label asp-for="ProfileImageUrl"></label>
+                    <input type="file" asp-for="ProfileImageUrl" class="image-input" />
+                    <label asp-for="ProfileImageUrl" class="image-label">
                         <span>Upload Profile Image</span>
                         <span class="browse">Browse</span>
                     </label>

@@ -483,8 +483,9 @@ footer {
 
         img {
             height: auto;
-            width: 400px;
+            max-width: 400px;
             margin-bottom: 3rem;
+            border-radius: 2rem;
         }
 
         .profile-menu {

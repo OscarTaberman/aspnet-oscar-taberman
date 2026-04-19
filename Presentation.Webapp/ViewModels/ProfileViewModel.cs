@@ -22,7 +22,7 @@ public sealed class ProfileViewModel
     public string? PhoneNumber { get; set; } = null!;
 
     [Display(Name = "Profile Picture")]
-    public IFormFile? ProfileImage { get; set; }
+    public IFormFile? ProfileImageUrl { get; set; }
 
     public string? ExistingProfileImageUrl { get; set; }
 }

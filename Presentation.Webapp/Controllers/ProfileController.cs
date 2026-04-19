@@ -13,6 +13,11 @@ namespace Presentation.Webapp.Controllers
         [Route("profile")]
         public async Task<IActionResult> Index()
         {
+            if (User.Identity?.IsAuthenticated != true)
+            {
+                return RedirectToAction("SignIn", "Account");
+            }
+
             var user = await userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -25,7 +30,9 @@ namespace Presentation.Webapp.Controllers
                 LastName = user.LastName,
                 Email = user.Email ?? string.Empty,
                 PhoneNumber = user.PhoneNumber,
-                ExistingProfileImageUrl = null,
+                ExistingProfileImageUrl = string.IsNullOrEmpty(user.ProfileImageUrl) 
+                                                ? "/images/profile-image.png" 
+                                                : user.ProfileImageUrl,
             };
 
             return View(profileViewModel);
@@ -33,22 +40,40 @@ namespace Presentation.Webapp.Controllers
 
         [HttpPost]
         [Route("profile")]
-        public async Task<IActionResult> UpdateProfile()
+        public async Task<IActionResult> UpdateProfile(ProfileViewModel updateUser)
         {
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
+            var currentUser = await userManager.GetUserAsync(User);
+            if (currentUser == null)
             {
                 return NotFound("User not found.");
             }
 
-            var updateUser = new ProfileViewModel
+            currentUser.FirstName = updateUser.FirstName ?? string.Empty;
+            currentUser.LastName = updateUser.LastName ?? string.Empty;
+            currentUser.Email = updateUser.Email ?? string.Empty;
+            currentUser.PhoneNumber = updateUser.PhoneNumber ?? string.Empty;
+            currentUser.ProfileImageUrl = updateUser.ExistingProfileImageUrl ?? string.Empty;
+
+            if (updateUser.ProfileImageUrl != null)
             {
-                FirstName = user.FirstName ?? string.Empty,
-                LastName = user.LastName ?? string.Empty,
-                Email = user.Email ?? string.Empty,
-                PhoneNumber = user.PhoneNumber,
-                ExistingProfileImageUrl = null,
-            };
+                var fileName = $"{Guid.NewGuid()}_{updateUser.ProfileImageUrl.FileName}";
+                var filePath = Path.Combine("wwwroot/images/profiles", fileName);
+                using (var stream = System.IO.File.Create(filePath))
+                {
+                    await updateUser.ProfileImageUrl.CopyToAsync(stream);
+                }
+                currentUser.ProfileImageUrl = $"/images/profiles/{fileName}";
+            }
+
+            var isUpdated = await userManager.UpdateAsync(currentUser);
+
+            if (!isUpdated.Succeeded)
+            {
+                ModelState.AddModelError(string.Empty, "Failed to update profile.");
+                return View("Index", updateUser);
+            }
+
+            await signInManager.RefreshSignInAsync(currentUser);
 
             return RedirectToAction("Index");
         }
