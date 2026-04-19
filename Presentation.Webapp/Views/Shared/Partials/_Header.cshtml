@@ -25,16 +25,36 @@
         </nav>
         <div>
             <ul class="account-buttons">
-                <li class="nav-links"><a asp-controller="Account" asp-action="Register">Become Member</a></li>
-                <li class="nav-links sign-in">
-                    <a asp-controller="Account" asp-action="SignIn">
-                        <span>Sign In</span>
-                        <img src="~/images/right-arrow.png" alt="arrow">
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <li>
+                        <a asp-controller="Profile" asp-action="Index">My Account</a>
+                    </li>
+
+                    <li>
+                        <form asp-controller="Account" asp-action="SignOutUser" method="post">
+                            <button class="log-account-button" type="submit">Sign Out 
+                                <img src="/images/right-arrow.png" alt="arrow">
+                            </button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a asp-controller="Account" asp-action="Register">Become Member</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Account" asp-action="SignIn" class="log-account-button">
+                            Sign In
+                            <img src="/images/right-arrow.png" alt="arrow">
                         </a>
                     </li>
-                </ul>
-            </div>
-        </section>
-        <section class="hero-container">
-        </section>
-    </header>
+                }
+            </ul>
+        </div>
+    </section>
+    <section class="hero-container">
+    </section>
+</header>

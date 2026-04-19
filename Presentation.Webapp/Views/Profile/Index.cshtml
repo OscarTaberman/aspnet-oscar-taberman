@@ -1,11 +1,10 @@
-﻿@{
+﻿@model Presentation.Webapp.ViewModels.ProfileViewModel
 
-}
 <div class="container">
     <h1>My Account</h1>
     <div class="my-account">
         <section class="profile-sidebar">
-            <img src="/images/profile-image.png" alt="profile image">
+            <img src="@(Model.ExistingProfileImageUrl)" alt="profile image">
             <section class="profile-menu">
                 <span>Menu Options</span>
                 <ul>
@@ -15,40 +14,48 @@
                     <li class="divider"></li>
                     <li>My Bookings <img src="/images/right-arrow.png" alt="arrow"></li>
                     <li class="divider"></li>
-                    <li>Sign Out <img src="/images/right-arrow.png" alt="arrow"></li>
+                    <li>
+                        <form asp-controller="Account" asp-action="SignOutUser" method="post">
+                            <button type="submit" class="sign-out">
+                                Sign Out <img src="/images/right-arrow.png" alt="arrow">
+                            </button>
+                        </form>
+                    </li>
                 </ul>
             </section>
+            <div class="delete">
+                <p>If you like to cancel your account click below</p>
+                <form asp-controller="Profile" asp-action="DeleteProfile" method="post">
+                    <button type="submit">Remove Account</button>
+                </form>
+            </div>
         </section>
         <section class="about-me">
             <h1>About Me</h1>
             <div class="divider"></div>
 
             <div class="register-form">
-                <form action="" method="post">
-                    <label for="first-name">First Name</label>
-                    <input type="text" placeholder="Enter First Name" />
-                    <label for="last-name">Last Name</label>
-                    <input type="text" placeholder="Enter Last Name" />
-                    <label for="email">Email Adress *</label>
-                    <input type="email" placeholder="Enter Email Adress" />
-                    <label for="phone-number">Phone Number</label>
-                    <input type="text" placeholder="Enter Phone Number" />
+                <form asp-controller="Profile" asp-action="UpdateProfile" enctype="multipart/form-data" method="post">
+                    <label asp-for="FirstName"></label>
+                    <input type="text" asp-for="FirstName" />
+                    <label asp-for="LastName"></label>
+                    <input type="text" asp-for="LastName" />
+                    <label asp-for="Email"></label>
+                    <input type="email" asp-for="Email" />
+                    <label asp-for="PhoneNumber"></label>
+                    <input type="text" asp-for="PhoneNumber" />
                     <div class="divider"></div>
-                    <label for="profile-image">Profile Image</label>
-                    <input type="file" class="image-input" />
-                    <label for="profile-image" class="image-label">
+                    <label asp-for="ProfileImageUrl"></label>
+                    <input type="file" asp-for="ProfileImageUrl" class="image-input" />
+                    <label asp-for="ProfileImageUrl" class="image-label">
                         <span>Upload Profile Image</span>
                         <span class="browse">Browse</span>
                     </label>
                     <button id="sendButton" class="button" type="submit">
-                        <span>Continue</span>
+                        <span>Save</span>
                         <img src="/images/right-arrow.png" alt="arrow">
                     </button>
                 </form>
-                <div class="condition">
-                    <input type="checkbox">
-                    <p>Accept user terms and conditions</p>
-                </div>
             </div>
         </section>
     </div>

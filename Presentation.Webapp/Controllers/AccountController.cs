@@ -33,7 +33,7 @@ namespace Presentation.Webapp.Controllers
         [Route("account/setpassword")]
         public IActionResult SetPassword(string email)
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(email))
             {
                 return RedirectToAction("Register");
             }
@@ -65,7 +65,7 @@ namespace Presentation.Webapp.Controllers
             {
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(nameof(SetPasswordViewModel.Password), error.Description);
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
                 return View(setPassword);
             }
@@ -101,6 +101,14 @@ namespace Presentation.Webapp.Controllers
             }
 
             return RedirectToAction("Index", "Profile");
+        }
+
+        [HttpPost]
+        [Route("account/signout")]
+        public async Task<IActionResult> SignOutUser()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
