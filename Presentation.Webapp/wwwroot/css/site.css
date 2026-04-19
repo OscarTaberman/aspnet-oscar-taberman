@@ -528,6 +528,21 @@ footer {
                         width: auto;
                     }
                 }
+
+                    li form .sign-out {
+                        border: none;
+                        font-family: var(--default-font);
+                        background-color: transparent;
+                        font-family: var(--default-font);
+                        font-weight: 500;
+                        font-size: 16px;
+                        margin-left: -0.5rem;
+
+                        &:hover {
+                            color: var(--accent-color);
+                            cursor: pointer;
+                        }
+                    }
             }
 
             .divider {

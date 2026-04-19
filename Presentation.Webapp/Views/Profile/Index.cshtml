@@ -14,7 +14,13 @@
                     <li class="divider"></li>
                     <li>My Bookings <img src="/images/right-arrow.png" alt="arrow"></li>
                     <li class="divider"></li>
-                    <li>Sign Out <img src="/images/right-arrow.png" alt="arrow"></li>
+                    <li>
+                        <form asp-controller="Account" asp-action="SignOutUser" method="post">
+                            <button type="submit" class="sign-out">
+                                Sign Out <img src="/images/right-arrow.png" alt="arrow">
+                            </button>
+                        </form>
+                    </li>
                 </ul>
             </section>
         </section>
