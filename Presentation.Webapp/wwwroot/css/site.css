@@ -472,12 +472,14 @@ footer {
 
 .my-account {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
     flex-direction: row;
+    margin: 3rem 0 6rem 0;
 
     .profile-sidebar {
         width: 400px;
-        margin-bottom: 6rem;
+        margin: 0rem 2rem;
 
         img {
             height: auto;
@@ -539,7 +541,7 @@ footer {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin: 3rem auto;
+        margin: 0rem 2rem;
         padding: 1rem 5rem;
         width: 800px;
         color: var(--primary-color);
@@ -576,6 +578,7 @@ footer {
             padding: 1rem 1.5rem;
             border-radius: 0.5rem;
             margin-bottom: 0.7rem;
+            margin-top: 0rem;
 
             .browse {
                 background-color: rgb(169, 169, 169);
@@ -590,6 +593,11 @@ footer {
                     cursor: pointer;
                 }
             }
+        }
+
+        .register-form .divider {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
     }
 }
